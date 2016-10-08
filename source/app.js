@@ -3,9 +3,9 @@ var port = process.env.PORT || 3001,
     fs = require('fs'),
     html = fs.readFileSync('index.html');
 	var url = require('url');
-
+var helper = require('./helper.js');
 var log = function(entry) {
-    console.log(new Date().toISOString() + ' - ' + entry + '\n');
+    console.log(new Date().toISOString() + ' - ' + entry);
 };
 	
 var server = http.createServer(function (req, res) {
@@ -18,13 +18,11 @@ var server = http.createServer(function (req, res) {
 		 }
 		 if(inputUrl.pathname == '/api/parsetime'){
 			 res.writeHead(200, { 'Content-Type': 'application/json' })
-			 var d = new Date(inputUrl.query.iso)
-			 var r = {"hour": d.getHours(), "minute": d.getMinutes(), "second": d.getSeconds()}
-			 return res.end(JSON.stringify(r));
+			 return res.end(helper.getTimeJson(inputUrl.query.iso));
 		 }
 		 else if(inputUrl.pathname == '/api/unixtime'){
 			 res.writeHead(200, { 'Content-Type': 'application/json' })
-			 return res.end(JSON.stringify({"unixtime" : new Date(inputUrl.query.iso).getTime()}));
+			 return res.end(helper.getUnixTime(inputUrl.query.iso));
 		 }else{			 
 			res.writeHead(404, { 'Content-Type': 'application/json' })
 			return res.end('Not Found')
