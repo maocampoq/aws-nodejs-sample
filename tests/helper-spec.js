@@ -1,7 +1,7 @@
 /**
  * Created by manuelo on 10/8/2016.
  */
-var helper = require('../source/helper.js');
+var helper = require('../helper.js');
 describe("A suite", function() {
     it("contains spec with an expectation", function() {
         expect(true).toBe(true);
