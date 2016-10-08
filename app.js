@@ -23,7 +23,11 @@ var server = http.createServer(function (req, res) {
 		 else if(inputUrl.pathname == '/api/concat'){
 			 res.writeHead(200, { 'Content-Type': 'application/json' })
 			 return res.end(inputUrl.query.text+inputUrl.query.text);
-		 }		 
+		 }	
+		 else if(inputUrl.pathname == '/api/largeconcat'){
+			 res.writeHead(200, { 'Content-Type': 'application/json' })
+			 return res.end(inputUrl.query.text+inputUrl.query.text+inputUrl.query.text+inputUrl.query.text+inputUrl.query.text);
+		 }			 
 		 else if(inputUrl.pathname == '/api/lowercase'){
 			 res.writeHead(200, { 'Content-Type': 'application/json' })
 			 return res.end(helper.toLower(inputUrl.query.text));
