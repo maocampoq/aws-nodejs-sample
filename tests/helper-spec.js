@@ -15,7 +15,7 @@ describe("A suite", function() {
     });
 
     it("get json time", function() {
-        expect(helper.getTimeJson("2013-08-11T01:10:15.474Z")).toBe('{"hour":18,"minute":10,"second":15}');
+        expect(helper.getTimeJson("2013-08-11T01:10:16.474Z")).toBe('{"hour":18,"minute":10,"second":16}');
     });
 	
 	it("To upper", function() {

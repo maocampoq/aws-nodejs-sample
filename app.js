@@ -19,8 +19,12 @@ var server = http.createServer(function (req, res) {
 		 if(inputUrl.pathname == '/api/uppercase'){
 			 res.writeHead(200, { 'Content-Type': 'application/json' })
 			 return res.end(helper.toUpper(inputUrl.query.text));
+		 }		 
+		 else if(inputUrl.pathname == '/api/lowercase'){
+			 res.writeHead(200, { 'Content-Type': 'application/json' })
+			 return res.end(helper.toLower(inputUrl.query.text));
 		 }
-		 if(inputUrl.pathname == '/api/parsetime'){
+		 else if(inputUrl.pathname == '/api/parsetime'){
 			 res.writeHead(200, { 'Content-Type': 'application/json' })
 			 return res.end(helper.getTimeJson(inputUrl.query.iso));
 		 }
