@@ -10,3 +10,9 @@ exports.getTimeJson = function getTimeJson(time){
     var r = {"hour": d.getHours(), "minute": d.getMinutes(), "second": d.getSeconds()};
     return JSON.stringify(r);
 }
+
+exports.toUpper = function toUpper(str){
+    if(!str)
+		return '';
+	return str.toUpperCase();
+}
